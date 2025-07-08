@@ -1,0 +1,22 @@
+{"level":"info","message":"Media service running on port 3003","service":"media-service","timestamp":"2025-07-07T14:11:58.327Z"}
+{"level":"info","message":"Connected to mongodb","service":"media-service","timestamp":"2025-07-07T14:12:00.606Z"}
+{"level":"info","message":"Received POST request to /api/media/upload","service":"media-service","timestamp":"2025-07-07T14:46:04.135Z"}
+{"level":"info","message":"Request body, [object Object]","service":"media-service","timestamp":"2025-07-07T14:46:04.136Z"}
+{"level":"info","message":"Received POST request to /api/media/upload","service":"media-service","timestamp":"2025-07-07T14:49:30.925Z"}
+{"level":"info","message":"Request body, undefined","service":"media-service","timestamp":"2025-07-07T14:49:30.926Z"}
+{"level":"info","message":"Starting media upload","service":"media-service","timestamp":"2025-07-07T14:49:30.997Z"}
+{"level":"info","message":"File details: name=profile.jpg, type=image/jpeg","service":"media-service","timestamp":"2025-07-07T14:49:31.008Z"}
+{"level":"info","message":"Uploading to cloudinary starting...","service":"media-service","timestamp":"2025-07-07T14:49:31.012Z"}
+{"level":"error","message":"Error creating media Must supply api_key","service":"media-service","stack":"Error: Must supply api_key\n    at ensureOption (D:\\projects\\social-media-microservices\\media-service\\node_modules\\cloudinary\\lib\\utils\\ensureOption.js:19:13)\n    at Object.sign_request (D:\\projects\\social-media-microservices\\media-service\\node_modules\\cloudinary\\lib\\utils\\index.js:1151:16)\n    at Object.process_request_params (D:\\projects\\social-media-microservices\\media-service\\node_modules\\cloudinary\\lib\\utils\\index.js:1203:22)\n    at call_api (D:\\projects\\social-media-microservices\\media-service\\node_modules\\cloudinary\\lib\\uploader.js:474:18)\n    at Object.upload (D:\\projects\\social-media-microservices\\media-service\\node_modules\\cloudinary\\lib\\uploader.js:53:10)\n    at Object.upload_stream (D:\\projects\\social-media-microservices\\media-service\\node_modules\\cloudinary\\lib\\uploader.js:40:18)\n    at Object.upload_stream (D:\\projects\\social-media-microservices\\media-service\\node_modules\\cloudinary\\lib\\utils\\index.js:1400:21)\n    at D:\\projects\\social-media-microservices\\media-service\\src\\utils\\cloudinary.js:12:46\n    at new Promise (<anonymous>)\n    at uploadMediaToCloudinary (D:\\projects\\social-media-microservices\\media-service\\src\\utils\\cloudinary.js:11:10)","timestamp":"2025-07-07T14:49:31.037Z"}
+{"level":"info","message":"Media service running on port 3003","service":"media-service","timestamp":"2025-07-07T14:53:35.531Z"}
+{"level":"info","message":"Connected to mongodb","service":"media-service","timestamp":"2025-07-07T14:53:38.816Z"}
+{"level":"info","message":"Media service running on port 3003","service":"media-service","timestamp":"2025-07-07T14:53:41.742Z"}
+{"level":"info","message":"Connected to mongodb","service":"media-service","timestamp":"2025-07-07T14:53:43.233Z"}
+{"level":"info","message":"Media service running on port 3003","service":"media-service","timestamp":"2025-07-07T14:53:48.698Z"}
+{"level":"info","message":"Received POST request to /api/media/upload","service":"media-service","timestamp":"2025-07-07T14:53:50.176Z"}
+{"level":"info","message":"Request body, undefined","service":"media-service","timestamp":"2025-07-07T14:53:50.177Z"}
+{"level":"info","message":"Starting media upload","service":"media-service","timestamp":"2025-07-07T14:53:50.190Z"}
+{"level":"info","message":"File details: name=profile.jpg, type=image/jpeg","service":"media-service","timestamp":"2025-07-07T14:53:50.192Z"}
+{"level":"info","message":"Uploading to cloudinary starting...","service":"media-service","timestamp":"2025-07-07T14:53:50.193Z"}
+{"level":"info","message":"Connected to mongodb","service":"media-service","timestamp":"2025-07-07T14:53:50.280Z"}
+{"level":"info","message":"Cloudinary upload successfully. Public Id: - rxevhi27ui6zpnylpg7z","service":"media-service","timestamp":"2025-07-07T14:53:51.979Z"}
