@@ -13,7 +13,7 @@ const handlePostDeleted = async (event) => {
       await Media.findByIdAndDelete(media._id);
 
       logger.info(
-        `Deleted medua ${media._id} associated with this deleted post ${postId}`
+        `Deleted media ${media._id} associated with this deleted post ${postId}`
       );
     }
 
