@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "3000:3000"
+    env_file: ./api-gateway/.env
+    depends_on:
+      - redis
+      - rabbitmq
+      - mongodb
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+      - MONGODB_URI=mongodb://admin:password@mongodb:27017/?authSource=admin
+
+  identity-service:
+    build: ./identity-service
+    env_file: ./identity-service/.env
+    depends_on:
+      - redis
+      - rabbitmq
+      - mongodb
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+      - MONGODB_URI=mongodb://admin:password@mongodb:27017/?authSource=admin
+
+  post-service:
+    build: ./post-service
+    env_file: ./post-service/.env
+    depends_on:
+      - redis
+      - rabbitmq
+      - mongodb
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+      - MONGODB_URI=mongodb://admin:password@mongodb:27017/?authSource=admin
+
+  media-service:
+    build: ./media-service
+    env_file: ./media-service/.env
+    depends_on:
+      - redis
+      - rabbitmq
+      - mongodb
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+      - MONGODB_URI=mongodb://admin:password@mongodb:27017/?authSource=admin
+
+  search-service:
+    build: ./search-service
+    env_file: ./search-service/.env
+    depends_on:
+      - redis
+      - rabbitmq
+      - mongodb
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+      - MONGODB_URI=mongodb://admin:password@mongodb:27017/?authSource=admin
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: [ "CMD", "rabbitmq-diagnostics", "-q", "ping" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+volumes:
+  mongodb-data:
