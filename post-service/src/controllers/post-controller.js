@@ -34,12 +34,12 @@ const createPost = async (req, res) => {
 
     await newlyCreatedPost.save();
 
-    // await publishEvent("post.created", {
-    //   postId: newlyCreatedPost._id.toString(),
-    //   userId: newlyCreatedPost.user.toString(),
-    //   content: newlyCreatedPost.content,
-    //   createdAt: newlyCreatedPost.createdAt,
-    // });
+    await publishEvent("post.created", {
+      postId: newlyCreatedPost._id.toString(),
+      userId: newlyCreatedPost.user.toString(),
+      content: newlyCreatedPost.content,
+      createdAt: newlyCreatedPost.createdAt,
+    });
 
     await invalidatePostCache(req, newlyCreatedPost._id.toString());
     logger.info("Post created successfully", newlyCreatedPost);
@@ -132,10 +132,12 @@ const getPost = async (req, res) => {
 
 const deletePost = async (req, res) => {
   try {
+    console.log(req.params.id)
     const post = await Post.findOneAndDelete({
       _id: req.params.id,
       user: req.user.userId,
     });
+    console.log("delete",post)
 
     if (!post) {
       return res.status(404).json({
@@ -156,7 +158,7 @@ const deletePost = async (req, res) => {
       message: "Post deleted successfully",
     });
   } catch (e) {
-    logger.error("Error deleting post", error);
+    logger.error("Error deleting post", e);
     res.status(500).json({
       success: false,
       message: "Error deleting post",
